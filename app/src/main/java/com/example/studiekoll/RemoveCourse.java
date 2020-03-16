@@ -12,6 +12,8 @@ import android.view.View;
 
 public class RemoveCourse extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -37,13 +37,6 @@ public class MainActivity extends AppCompatActivity {
 
         loadData();
         buildRecyclerView();
-        saveButton=findViewById(R.id.image_button_save);
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                saveData();
-            }
-        });
 
     }
     public void saveData(){
@@ -80,21 +73,22 @@ public class MainActivity extends AppCompatActivity {
             public void onAddClick(int position) {
                 int prevHours = courseClassList.get(position).getHours();
                 prevHours++;
+
                 courseClassList.get(position).setHours(prevHours);
                 mAdapter.notifyItemChanged(position);
+                saveData();
             }
 
             @Override
             public void onRemoveClick(int position) {
                 int prevHours = courseClassList.get(position).getHours();
                 prevHours--;
+
                 courseClassList.get(position).setHours(prevHours);
                 mAdapter.notifyItemChanged(position);
+                saveData();
             }
         });
-    }
-    public void changeTitleItem(int position,String text){
-        courseClassList.get(position).changeTitle(text);
     }
 
     @Override
@@ -109,11 +103,13 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.menu_item1:
                 Toast.makeText(this,"Lägg till kurs", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this,AddCourse.class);
-                startActivityForResult(intent,1);
+                Intent intentAddCourse = new Intent(this,AddCourse.class);
+                startActivityForResult(intentAddCourse,1);
                 return true;
             case R.id.menu_item2:
                 Toast.makeText(this,"Ta bort kurs", Toast.LENGTH_SHORT).show();
+                Intent intentRemoveCourse = new Intent(this, RemoveCourse.class);
+                startActivityForResult(intentRemoveCourse,1);
                 return true;
 
             default:return super.onOptionsItemSelected(item);
@@ -123,17 +119,26 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==1){
-            if(resultCode==RESULT_OK){
-                Bundle bundle = data.getExtras();
-                CourseClass newCourse = (CourseClass) bundle.getSerializable("NEW_COURSE");
-                if(newCourse!=null){
-                    courseClassList.add(newCourse);
-                    mAdapter.notifyDataSetChanged();
+        switch (requestCode){
+            case 1:
+                if(resultCode==RESULT_OK){
+                    Bundle bundle = data.getExtras();
+                    CourseClass newCourse = (CourseClass) bundle.getSerializable("NEW_COURSE");
+                    if(newCourse!=null){
+                        courseClassList.add(newCourse);
+                        mAdapter.notifyDataSetChanged();
+                    }
+                }else{
+                    Toast.makeText(this,"Ingen kurs tillagd",Toast.LENGTH_SHORT).show();
                 }
-            }else{
-                Toast.makeText(this,"Ingen kurs tillagd",Toast.LENGTH_SHORT).show();
-            }
+                break;
+            case 2:
+                if(resultCode==RESULT_OK){
+                    //delete course somehow
+                }else{
+                    Toast.makeText(this,"Ingen kurs borttagen",Toast.LENGTH_SHORT).show();
+                }
+                break;
         }
     }
 }

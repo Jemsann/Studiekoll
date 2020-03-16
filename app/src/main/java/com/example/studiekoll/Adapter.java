@@ -1,6 +1,5 @@
 package com.example.studiekoll;
 
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +17,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     public interface OnItemClickListener{
         void onAddClick(int position);
-        void onRemoveClick(int positon);
+        void onRemoveClick(int position);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener){

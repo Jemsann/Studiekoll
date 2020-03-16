@@ -56,7 +56,7 @@ public class AddCourse extends AppCompatActivity {
                     bundle.putSerializable("NEW_COURSE",newCourse);
 
                     resultIntent.putExtras(bundle);
-
+                    
                     setResult(RESULT_OK,resultIntent);
                     finish();
                 }

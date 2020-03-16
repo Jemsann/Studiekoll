@@ -2,4 +2,10 @@
     <string name="app_name">Studiekoll</string>
     <string name="title_activity_add_course">AddCourse</string>
     <string name="title_activity_remove_course">RemoveCourse</string>
+    <string name="add_course_init_value">5</string>
+    <string name="add_course_ange_starttimmar">Ange starttimmar:</string>
+    <string name="add_course_save">Spara</string>
+    <string name="add_course_regret">Ångra</string>
+    <string name="add_course_ange_kursnamn">Ange kurs:</string>
+    <string name="add_course_init_course">Matte</string>
 </resources>

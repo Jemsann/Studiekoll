@@ -17,7 +17,7 @@
        android:layout_marginStart="15dp"
        android:layout_marginLeft="15dp"
        android:layout_marginTop="140dp"
-       android:text="Ange kurs:"
+       android:text="@string/add_course_ange_kursnamn"
        android:textSize="30sp" />
 
    <EditText
@@ -31,7 +31,7 @@
        android:layout_marginStart="15dp"
        android:layout_marginLeft="15dp"
        android:layout_marginTop="190dp"
-       android:text="t.ex Matte"
+       android:text="@string/add_course_init_course"
        android:textColor="@color/colorPrimary"
        android:textSize="30sp" />
 
@@ -45,7 +45,7 @@
        android:layout_marginStart="15dp"
        android:layout_marginLeft="15dp"
        android:layout_marginTop="268dp"
-       android:text="Ange starttimmar:"
+       android:text="@string/add_course_ange_starttimmar"
        android:textSize="30sp" />
 
    <EditText
@@ -59,7 +59,7 @@
        android:layout_marginLeft="18dp"
        android:layout_marginTop="321dp"
        android:inputType="number"
-       android:text="t.ex. 30"
+       android:text="@string/add_course_init_value"
        android:textColor="@color/colorPrimary"
        android:textSize="30sp" />
 
@@ -74,7 +74,7 @@
        android:layout_marginRight="9dp"
        android:layout_marginBottom="93dp"
        android:baselineAligned="false"
-       android:text="Spara"
+       android:text="@string/add_course_save"
        android:textSize="30sp" />
 
    <Button
@@ -89,7 +89,7 @@
        android:layout_marginRight="146dp"
        android:layout_marginBottom="93dp"
        android:baselineAligned="false"
-       android:text="Ångra"
+       android:text="@string/add_course_regret"
        android:textSize="30sp" />
 
 </RelativeLayout>
